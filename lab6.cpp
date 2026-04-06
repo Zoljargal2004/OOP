@@ -51,7 +51,7 @@ public:
     }
 
     void show() override{
-        cout <<": "<<name<<endl;
+        cout <<"\nName: "<<name<<endl;
         cout <<"Tuviin coordinate: ("<<x<<", "<<y<<")\n";
         cout <<"Radius: "<<r<<endl;
     }
@@ -80,12 +80,12 @@ public:
     }
 
     void show() override{
-        cout<<"Name:"<<name<<endl;
-        cout<<"Shuluun:("<<x<<","<<y<<")"
+        cout<<"\nName: "<<name<<endl;
+        cout<<"Shuluun: ("<<x<<","<<y<<")"
              <<"("<<x+a<<","<<y<<")"
              <<"("<<x+a<<","<<y-a<<")"
              <<"("<<x<<","<<y-a<<")"<<endl;
-        cout<<"Side:"<<a<<endl;
+        cout<<"Side :"<<a<<endl;
     }
 };
 
@@ -117,7 +117,7 @@ public:
     }
 
     void show() override {
-        cout << "\n[Zuv Gurvaljin] " << name << endl;
+        cout << "\nName: " << name << endl;
         cout << "Points: ";
         cout << "("<<x<<","<<y<<") ";
         cout << "("<<x2<<","<<y2<<") ";
