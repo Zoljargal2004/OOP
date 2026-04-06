@@ -91,7 +91,39 @@ public:
 
 // 3. Зөв гурвалжин class
 class zuvGurvaljin : public Shape2D{
+private:
+    double x, y, a;
 
+    double x2, y2, x3, y3;
+
+public:
+    zuvGurvaljin(string n, double x, double y, double a)
+        : Shape2D(n), x(x), y(y), a(a) {
+
+        // зөв гурвалжин
+        x2 = x - a/2;
+        y2 = y - (sqrt(3)/2)*a;
+
+        x3 = x + a/2;
+        y3 = y - (sqrt(3)/2)*a;
+    }
+
+    double area() override {
+        return (sqrt(3)/4) * a * a;
+    }
+
+    double perimeter() override {
+        return 3 * a;
+    }
+
+    void show() override {
+        cout << "\n[Zuv Gurvaljin] " << name << endl;
+        cout << "Points: ";
+        cout << "("<<x<<","<<y<<") ";
+        cout << "("<<x2<<","<<y2<<") ";
+        cout << "("<<x3<<","<<y3<<")\n";
+        cout << "Side: " << a << endl;
+    }
 };
 
 int main(){
@@ -99,6 +131,7 @@ int main(){
 
     shapes[0] = new toirog("Toirog", 0, 0, 8);
     shapes[1] = new kvadrat("kvadrat", 0, 0, 5);
+    shapes[2] = new zuvGurvaljin("Zuv Gurvaljin", 0, 5, 6);
 
     for (int i = 0; i < 3; i++){
         shapes[i]->show();
