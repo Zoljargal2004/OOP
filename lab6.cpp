@@ -1,11 +1,11 @@
 #include <iostream>
-#include <cmath>
+#include <cmath> // pi bolon zereg ashiglah shaardlagatai tul duudsn
 using namespace std;
 
 // Shape класс (base class)
 class Shape{
 protected:
-    string name;
+    string name; 
 
 public:
     Shape(string n){
@@ -43,11 +43,11 @@ public:
     }
 
     double area() override{
-        return M_PI*r*r;
+        return M_PI*r*r; // toirgiin talbai oloh tomyo
     }
 
-    double perimeter() override{
-        return 2*M_PI*r;
+    double perimeter() override{ 
+        return 2*M_PI*r; // toirgiin perimeter oloh tomyo
     }
 
     void show() override{
@@ -74,7 +74,7 @@ int main(){
 
     for (int i = 0; i < 3; i++){
         shapes[i]->show();
-        cout<<"Талбай: "<<shapes[i]->area()<<endl;
+        cout<<"Талбай: "<<shapes[i]->area()<<endl; 
         cout<<"Периметр: "<<shapes[i]->perimeter()<<endl;
     }
 
