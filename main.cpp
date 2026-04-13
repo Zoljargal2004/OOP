@@ -1,23 +1,42 @@
 #include <iostream>
+#include <algorithm>
 #include "shapes.h"
 
+using namespace std;
+
 int main(){
-    Shape* shapes[3];
+    const int N = 8;
+    Shape* shapes[N];
 
-    shapes[0] = new toirog("Toirog", 0, 0, 8);
-    shapes[1] = new kvadrat("kvadrat", 0, 0, 5);
-    shapes[2] = new zuvGurvaljin("Zuv Gurvaljin", 0, 5, 6);
+    shapes[0] = new toirog("Toirog-A", 0, 0, 3);        
+    shapes[1] = new toirog("Toirog-B", 1, 2, 7);        
+    shapes[2] = new kvadrat("Kvadrat-A", 0, 0, 4);       
+    shapes[3] = new kvadrat("Kvadrat-B", 2, 2, 9);       
+    shapes[4] = new zuvGurvaljin("Gurvaljin-A", 0, 5, 6); 
+    shapes[5] = new zuvGurvaljin("Gurvaljin-B", 3, 3, 10);
+    shapes[6] = new Pentagon("Pentagon-A", 0, 0, 4);     
+    shapes[7] = new Pentagon("Pentagon-B", 1, 1, 8);     
 
-    for (int i = 0; i < 3; i++){
-        shapes[i]->show();
-        cout<<"Talbai: "<<shapes[i]->area()<<endl; 
-        cout<<"Perimeter: "<<shapes[i]->perimeter()<<endl;
+    // Талбайгаар өсөх дарааллаар эрэмбэлэх (bubble sort)
+    for(int i = 0; i < N - 1; i++){
+        for(int j = i + 1; j < N; j++){
+            if(shapes[i]->area() > shapes[j]->area()){
+                swap(shapes[i], shapes[j]);
+            }
+        }
     }
 
-    // санах ойг чөлөөлөх
-    for (int i=0; i<3; i++){
+    cout<<"=== Дүрсүүд талбайгаар эрэмбэлэгдсэн (өсөх дараалал) ==="<<endl;
+    for(int i = 0; i < N; i++){
+        shapes[i]->show();
+        cout<<"  Talbai   : "<<shapes[i]->area()<<endl;
+        cout<<"  Perimeter: "<<shapes[i]->perimeter()<<endl;
+    }
+
+    // Санах ойг чөлөөлөх
+    for(int i = 0; i < N; i++){
         delete shapes[i];
     }
+
     return 0;
 }
-

@@ -21,14 +21,19 @@ public:
     virtual double perimeter() = 0;
 
     virtual void show(){
-        cout << "Shape: " << name << endl;
+        cout<<"Shape: "<<name<<endl;
     }
 };
 
-// 2Dshape хүүхэд класс (derived from Shape)
+// 2D Shape хүүхэд класс (derived from Shape)
+// Бүх 2D дүрсийн нийтлэг шинж: x, y coordinate
 class Shape2D : public Shape{
+protected:
+    double x, y;
+
 public:
-    Shape2D(string n) : Shape(n){}
+    Shape2D(string n, double x, double y)
+        : Shape(n), x(x), y(y) {}
 };
 
 #endif

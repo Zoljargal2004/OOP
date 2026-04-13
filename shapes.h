@@ -11,23 +11,18 @@
 // 1.Тойрог класс
 class toirog : public Shape2D{
 private:
-    double x, y; // төвийн координат
-    double r; // радиус
+    double r; // радиус (x, y Shape2D-аас өвлөнө)
 
 public:
     toirog(string n, double x, double y, double r)
-        : Shape2D(n){
-        this->x = x;
-        this->y = y;
-        this->r = r;
-    }
+        : Shape2D(n, x, y), r(r) {}
 
     double area() override{
-        return M_PI*r*r; // toirgiin talbai oloh tomyo
+        return M_PI*r*r;
     }
 
     double perimeter() override{ 
-        return 2*M_PI*r; // toirgiin perimeter oloh tomyo
+        return 2*M_PI*r;
     }
 
     void show() override{
@@ -40,16 +35,11 @@ public:
 // 2. Квадрат class
 class kvadrat : public Shape2D{
 private:
-    double x, y; //zuun deed talin tseg
-    double a; //taliin urt
+    double a; // талийн урт (x, y Shape2D-аас өвлөнө)
 
 public:
     kvadrat(string n, double x, double y, double side)
-        : Shape2D(n){
-        this->x = x;
-        this->y = y;
-        a = side;
-    }
+        : Shape2D(n, x, y), a(side) {}
 
     double area() override{
         return a * a;
@@ -72,18 +62,15 @@ public:
 // 3. Зөв гурвалжин class
 class zuvGurvaljin : public Shape2D{
 private:
-    double x, y, a;
-
-    double x2, y2, x3, y3;
+    double a;           // талийн урт (x, y Shape2D-аас өвлөнө)
+    double x2, y2, x3, y3; // бусад оройнууд (1-р оройг Shape2D-аас авна)
 
 public:
     zuvGurvaljin(string n, double x, double y, double a)
-        : Shape2D(n), x(x), y(y), a(a) {
-
-        // зөв гурвалжин
+        : Shape2D(n, x, y), a(a) {
+        // зөв гурвалжины бусад оройнуудыг тооцоолох
         x2 = x - a/2;
         y2 = y - (sqrt(3)/2)*a;
-
         x3 = x + a/2;
         y3 = y - (sqrt(3)/2)*a;
     }
@@ -103,6 +90,28 @@ public:
         cout << "("<<x2<<","<<y2<<") ";
         cout << "("<<x3<<","<<y3<<")\n";
         cout << "Side: " << a << endl;
+    }
+};
+
+class Pentagon : public Shape2D{
+private:
+    double a;
+
+public:
+    Pentagon(string n, double x, double y, double a)
+        : Shape2D(n, x, y), a(a) {}
+
+    double area() override{
+        return (1.0/4) * sqrt(5.0 * (5.0 + 2.0 * sqrt(5.0))) * a * a;
+    }
+
+    double perimeter() override{
+        return 5 * a;
+    }
+
+    void show() override{
+        cout<< "\nName: " << name <<endl;
+        cout<< "Side: " << a <<endl;
     }
 };
 
