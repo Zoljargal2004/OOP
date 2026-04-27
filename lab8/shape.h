@@ -12,7 +12,7 @@ protected:
     static int count; //dursuudiin too
 public:
     Shape(string n){
-        name=n;
+        this->name = n;
         count++; //object uuseh burt 1 eer nemegduulne
     }
 
@@ -20,6 +20,10 @@ public:
 
     static int getCount(){
         return count;
+    }
+
+    static void resetCount(){
+        count = 0;
     }
     // Хийсвэр функцууд
     virtual double area() = 0;
@@ -41,6 +45,10 @@ protected:
 public:
     Shape2D(string n, double x, double y)
         : Shape(n), x(x), y(y) {}
+
+    // Хийсвэр функцууд
+    virtual double area() = 0;
+    virtual double perimeter() = 0;
 };
 
 #endif

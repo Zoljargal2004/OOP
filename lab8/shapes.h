@@ -18,17 +18,17 @@ public:
         : Shape2D(n, x, y), r(r) {}
 
     double area() override{
-        return M_PI*r*r;
+        return M_PI*this->r*this->r;
     }
 
     double perimeter() override{ 
-        return 2*M_PI*r;
+        return 2*M_PI*this->r;
     }
 
     void show() override{
-        cout <<"\nName: "<<name<<endl;
-        cout <<"Tuviin coordinate: ("<<x<<", "<<y<<")\n";
-        cout <<"Radius: "<<r<<endl;
+        cout <<"\nName: "<<this->name<<endl;
+        cout <<"Tuviin coordinate: ("<<this->x<<", "<<this->y<<")\n";
+        cout <<"Radius: "<<this->r<<endl;
     }
 };
 
@@ -42,20 +42,20 @@ public:
         : Shape2D(n, x, y), a(side) {}
 
     double area() override{
-        return a * a;
+        return this->a * this->a;
     }
 
     double perimeter() override{
-        return 4 * a;
+        return 4 * this->a;
     }
 
     void show() override{
-        cout<<"\nName: "<<name<<endl;
-        cout<<"Shuluun: ("<<x<<","<<y<<")"
-             <<"("<<x+a<<","<<y<<")"
-             <<"("<<x+a<<","<<y-a<<")"
-             <<"("<<x<<","<<y-a<<")"<<endl;
-        cout<<"Side: "<<a<<endl;
+        cout<<"\nName: "<<this->name<<endl;
+        cout<<"Shuluun: ("<<this->x<<","<<this->y<<")"
+             <<"("<<this->x+this->a<<","<<this->y<<")"
+             <<"("<<this->x+this->a<<","<<this->y-this->a<<")"
+             <<"("<<this->x<<","<<this->y-this->a<<")"<<endl;
+        cout<<"Side: "<<this->a<<endl;
     }
 };
 
@@ -69,27 +69,27 @@ public:
     zuvGurvaljin(string n, double x, double y, double a)
         : Shape2D(n, x, y), a(a) {
         // зөв гурвалжины бусад оройнуудыг тооцоолох
-        x2 = x - a/2;
-        y2 = y - (sqrt(3)/2)*a;
-        x3 = x + a/2;
-        y3 = y - (sqrt(3)/2)*a;
+        this->x2 = x - a/2;
+        this->y2 = y - (sqrt(3)/2)*a;
+        this->x3 = x + a/2;
+        this->y3 = y - (sqrt(3)/2)*a;
     }
 
     double area() override {
-        return (sqrt(3)/4) * a * a;
+        return (sqrt(3)/4) * this->a * this->a;
     }
 
     double perimeter() override {
-        return 3 * a;
+        return 3 * this->a;
     }
 
     void show() override {
-        cout << "\nName: " << name << endl;
+        cout << "\nName: " << this->name << endl;
         cout << "Points: ";
-        cout << "("<<x<<","<<y<<") ";
-        cout << "("<<x2<<","<<y2<<") ";
-        cout << "("<<x3<<","<<y3<<")\n";
-        cout << "Side: " << a << endl;
+        cout << "("<<this->x<<","<<this->y<<") ";
+        cout << "("<<this->x2<<","<<this->y2<<") ";
+        cout << "("<<this->x3<<","<<this->y3<<")\n";
+        cout << "Side: " << this->a << endl;
     }
 };
 

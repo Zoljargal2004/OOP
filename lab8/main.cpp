@@ -18,12 +18,16 @@ int main(){
 
     // Талбайгаар өсөх дарааллаар эрэмбэлэх (bubble sort)
     for(int i = 0; i < N - 1; i++){
-        for(int j = i + 1; j < N; j++){
-            if(shapes[i]->area() > shapes[j]->area()){
-                swap(shapes[i], shapes[j]);
-            }
+    for(int j = i + 1; j < N; j++){
+        // area n tentsuu bol ali ih perimetereer n erembelne
+        if( shapes[i]->area() > shapes[j]->area() ||
+           (shapes[i]->area() == shapes[j]->area() &&
+            shapes[i]->perimeter() > shapes[j]->perimeter()) ){
+            
+            swap(shapes[i], shapes[j]);
         }
     }
+}
 
     cout<<"=== Дүрсүүд талбайгаар эрэмбэлэгдсэн (өсөх дараалал) ==="<<endl;
     for(int i = 0; i < N; i++){
